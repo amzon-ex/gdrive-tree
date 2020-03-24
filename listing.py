@@ -1,7 +1,7 @@
 
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-# import xml.etree.ElementTree as xet
+from pathlib import Path
 from lxml import etree as xet
 
 gauth = GoogleAuth()
@@ -58,7 +58,7 @@ def addNodeLevel(current_parent,fid = 'root'):
 			filenode.set('size','0')
 		sizeSum += int(filenode.attrib['size'])
 
-	# Recursively flush file tags to the tree first
+	# Recursively flush folder tags to the tree
 	for folder in _folders:
 		print(folder['title']+'...')
 		foldernode = xet.SubElement(current_parent,'folder')
@@ -77,4 +77,4 @@ addNodeLevel(root)
 # Write the generated tree to an XML file;
 # Setting 'pretty-print' to True automatically adds newlines and indents
 # Setting 'xml-declaration' to True writes the XML prolog
-tree.write('drive-tree.xml',pretty_print = True,encoding = 'utf-8',xml_declaration = True)
+tree.write(str(Path('out/drive-tree.xml')), pretty_print = True, encoding = 'utf-8', xml_declaration = True)
