@@ -29,6 +29,7 @@ drive = GoogleDrive(gauth)
 
 
 root = xet.Element('root')
+root.set('id', 'gdrive-tree-root')
 tree = xet.ElementTree()
 tree._setroot(root)
 

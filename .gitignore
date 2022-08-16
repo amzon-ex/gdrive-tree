@@ -1,5 +1,9 @@
 out/*
 !out/*.css
+!out/res
 
 client_secrets.json
 mycreds.txt
+
+# Ignore bootstrap version for now
+*bs*
