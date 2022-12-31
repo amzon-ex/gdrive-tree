@@ -76,8 +76,8 @@ extractNodeLevel(fileroot,driveroot)
 
 # Write the generated tree to an HTML file;
 # Setting 'pretty-print' to True automatically adds newlines and indents
-with open(Path('res/tree-template-2.html'), 'w+', encoding = 'utf-8') as f:
-    for line in open(Path('out/drive-tree-alt.html'), 'rt', encoding = 'utf-8').readlines():
+with open(Path('out/drive-tree-alt.html'), 'w+', encoding = 'utf-8') as f:
+    for line in open(Path('res/tree-template-2.html'), 'rt', encoding = 'utf-8').readlines():
         f.write(line)
         if line.find('<div id="collapseDVR3" class="panel-collapse collapse in">') > -1:
             f.write('\n' + xet.tostring(listroot, pretty_print = True, encoding = 'utf-8', method = 'html').decode(encoding='utf-8') + '\n')
