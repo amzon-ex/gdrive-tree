@@ -5,6 +5,11 @@ from pathlib import Path
 from lxml import etree as xet
 
 gauth = GoogleAuth()
+# Set the scopes we need
+gauth.settings['oauth_scope'] = [
+    'https://www.googleapis.com/auth/drive.readonly'  # Read-only access to files and metadata
+]
+
 # Try to load saved client credentials
 gauth.LoadCredentialsFile("mycreds.txt")
 if gauth.credentials is None:
